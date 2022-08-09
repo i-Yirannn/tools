@@ -576,6 +576,7 @@ func runFrame(fr *frame) {
 		for _, instr := range fr.block.Instrs {
 			if fr.i.mode&EnableTracing != 0 {
 				if v, ok := instr.(ssa.Value); ok {
+					fmt.Printf("\t%T:\n", instr)
 					fmt.Fprintln(os.Stderr, "\t", v.Name(), "=", instr)
 				} else {
 					fmt.Fprintln(os.Stderr, "\t", instr)
